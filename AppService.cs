@@ -35,14 +35,14 @@ namespace SqliteConnectStringConslFrmw
                 // DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
 
                 // 
-                //string path = @"C:\Projects\dbAppIndexes3.db";
-                //string connectionString = $"Data Source={path}";
-                //DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
+                string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db";
+                string connectionString = $"Data Source={path}";
+                DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
 
                 // 
-                string path = @"C:\Projects\dbAppIndexes3.db";
-                string connectionString = $"AttachDBFileName={path}";
-                DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
+                // string path = @"C:\Projects\dbAppIndexes3.db";
+                // string connectionString = $"AttachDBFileName={path}";
+                // DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
 
                 // 
                 // string connectionStringsName = "DefaultConnection";
