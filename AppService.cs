@@ -31,6 +31,23 @@ namespace SqliteConnectStringConslFrmw
             try
             {
                 // 
+                // string cs = @"dbAppIndexes2.db";
+                // DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
+
+                // 
+                // Работает. App.config. connectionString="Data Source=dbAppIndexes2.db"                
+                // DbContextIndexes dbContextIndexes = new DbContextIndexes();
+
+                // Работает. App.config. connectionString="Data Source=dbAppIndexes2.db"                
+                // string cs = @"DefaultConnection";
+                //  DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
+
+                // Работает. App.config. connectionString="Data Source=dbAppIndexes2.db"                
+                // string cs = @"DefaultConnection2";
+                // DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
+
+
+                // 
                 // string cs = @"C:\Projects\dbAppIndexes.db";
                 // DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
 
@@ -38,11 +55,11 @@ namespace SqliteConnectStringConslFrmw
                 //string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db";
                 //string connectionString = $"Data Source={path}";
                 //DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
-                
+
                 //
-                string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db";
-                string connectionString = $"Data Source={path}";
-                DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
+                //string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db";
+                //string connectionString = $"Data Source={path}";
+                //DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
 
                 // 
                 // string path = @"C:\Projects\dbAppIndexes3.db";

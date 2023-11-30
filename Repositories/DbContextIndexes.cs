@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace SqliteConnectStringConslFrmw
         
         public DbContextIndexes(string connectionStringsName) : base(connectionStringsName)
         {
-
+            Debug.WriteLine($"connectionStringsName -- {connectionStringsName}");
         }
       
         public DbSet<Index> Indexes { get; set; }        
