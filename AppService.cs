@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
+using System.Data.SQLite;
 using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
@@ -22,9 +23,10 @@ namespace SqliteConnectStringConslFrmw
 
         public void TestMain()
         {
-           // GetAll();
-           // GetAll1();
-            GetAll3();
+            // GetAll();
+            // GetAll1();
+            // GetAll3();
+            TestConnection();
         }   
 
         public void GetAll()
@@ -131,6 +133,30 @@ namespace SqliteConnectStringConslFrmw
             {
                 string s = ex.Message;
                 throw;
+            }
+        }
+
+        public void TestConnection()
+        {
+            string connectionStringBeginning = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db";
+            // string connectionString = $"Data Source={path}";
+            string connectionStringResult = string.Format(connectionStringBeginning, path); // `Data Source=c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db`    
+
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(connectionStringResult))
+                {
+                    connection.Open();
+                    
+                    var connectionState = connection.State;
+
+                    Console.WriteLine("Соединение установлено.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
         #endregion
