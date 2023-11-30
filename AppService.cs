@@ -25,8 +25,8 @@ namespace SqliteConnectStringConslFrmw
         {
             // GetAll();
             // GetAll1();
-            // GetAll3();
-            TestConnection();
+                GetAll3();
+            // TestConnection();
         }   
 
         public void GetAll()
