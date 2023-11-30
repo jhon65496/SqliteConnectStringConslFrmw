@@ -25,7 +25,7 @@ namespace SqliteConnectStringConslFrmw
 
         public DbContextIndexes(string connectionString) : this() // Use "DefaultConnection" app connection string and
         {
-            Database.Connection.ConnectionString = connectionString; // Overwrite to use the desired connection string.
+            // Database.Connection.ConnectionString = connectionString; // Overwrite to use the desired connection string.
         }
 
         public DbSet<Index> Indexes { get; set; }        

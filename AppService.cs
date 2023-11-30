@@ -27,7 +27,7 @@ namespace SqliteConnectStringConslFrmw
         #region steve-py--stackoverflow.com --- --- --- --- --- --- --- --- --- --- --- ---
         public void GetAll3()
         {
-            string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes3.db;";
+            string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes3.db";
             string connectionString = $"Data Source={path}";
 
             DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
