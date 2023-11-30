@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
@@ -21,9 +22,9 @@ namespace SqliteConnectStringConslFrmw
 
         public void TestMain()
         {
-             GetAll();
+           // GetAll();
            // GetAll1();
-           // GetAll2();
+            GetAll3();
         }   
 
         public void GetAll()
@@ -105,6 +106,33 @@ namespace SqliteConnectStringConslFrmw
             var indexes = new ObservableCollection<Index>(i);
         }
 
+        #region Andrey-MSK_Answ_04 -- cyberforum.ru
+        /*https://www.cyberforum.ru/post17132484.html
+         */
+        public void GetAll3()
+        {
+            try
+            {
+                // 
+                string connectionStringBeginning = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                string path = @"c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db";
+                // string connectionString = $"Data Source={path}";
+                string connectionStringResult = string.Format(connectionStringBeginning, path); // `Data Source=c:\TestFile\DBTest\SQLite\01\dbAppIndexes2.db`
+                DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionStringResult);
 
+                
+
+                IndexesRepository indexesRepository = new IndexesRepository(dbContextIndexes);
+
+                var i = indexesRepository.Items.ToArray();
+                var indexes = new ObservableCollection<Index>(i);
+            }
+            catch (Exception ex)
+            {
+                string s = ex.Message;
+                throw;
+            }
+        }
+        #endregion
     }
 }
