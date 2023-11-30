@@ -13,12 +13,10 @@ namespace SqliteConnectStringConslFrmw
 {
     public class DbContextIndexes : DbContext
     {
-
         public DbContextIndexes() : base("DefaultConnection")
         {
 
         }
-
         
         public DbContextIndexes(string connectionStringsName) : base(connectionStringsName)
         {
