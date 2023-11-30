@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.SQLite;
 using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
@@ -21,9 +22,10 @@ namespace SqliteConnectStringConslFrmw
 
         public void TestMain()
         {
-             GetAll();
-           // GetAll1();
-           // GetAll2();
+            // GetAll();
+            // GetAll1();
+            // GetAll2();
+            GetAll3();
         }   
 
         public void GetAll()
@@ -43,8 +45,8 @@ namespace SqliteConnectStringConslFrmw
                 //  DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
 
                 // Работает. App.config. connectionString="Data Source=dbAppIndexes2.db"                
-                // string cs = @"DefaultConnection2";
-                // DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
+                 string cs = @"DefaultConnection2";
+                 DbContextIndexes dbContextIndexes = new DbContextIndexes(cs);
 
 
                 // 
@@ -128,5 +130,33 @@ namespace SqliteConnectStringConslFrmw
         }
 
 
+        /// <summary>
+        /// SQLiteConnectionStringBuilder
+        /// </summary>
+        public void GetAll3()
+        {
+            try
+            {
+                string cs = @"Data Source=c:\TestFile\DBTest\SQLite\01\dbAppIndexes3.db";
+                SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder(cs);
+
+                // Добавляем в строку подключения необходимые параметры
+                // builder.Add("BinaryGUID", "False");
+                // builder.Add("Foreign Keys", "True");
+                string connectionString = builder.ConnectionString;
+
+                DbContextIndexes dbContextIndexes = new DbContextIndexes(connectionString);
+
+                IndexesRepository indexesRepository = new IndexesRepository(dbContextIndexes);
+
+                var i = indexesRepository.Items.ToArray();
+                var indexes = new ObservableCollection<Index>(i);
+            }
+            catch (Exception ex)
+            {
+                string s = ex.Message;
+                throw;
+            }
+        }
     }
 }
